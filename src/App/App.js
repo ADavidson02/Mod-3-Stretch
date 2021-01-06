@@ -5,6 +5,9 @@ import Home from "../Home/Home";
 import Form from "../Form/Form";
 import Archive from "../Archive/Archive";
 import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp"
+import { Container } from "react-bootstrap";
+// import { AuthProvider } from "../contexts/AuthContext"
 
 class App extends Component {
   constructor() {
@@ -32,9 +35,26 @@ class App extends Component {
             }}
           />
           <Route
-            path="/"
+            path="/home"
             render={() => {
               return <Home />;
+            }}
+          />
+          <Route
+            path="/"
+            render={() => {
+              return (
+                // <AuthProvider>
+                  <Container
+                    className="d-flex align-items-center justify-content-center"
+                    style={{ minHeight: "100vh" }}
+                  >
+                    <div className="w-100" style={{ maxWidth: "400px" }}>
+                      <SignUp />
+                    </div>
+                  </Container>
+                // </AuthProvider>
+              )
             }}
           />
         </Switch>
