@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from "../firebase"
+import firebase from "firebase/app"
+import "firebase/auth"
 
 const AuthContext = React.createContext()
 
@@ -25,10 +27,27 @@ export function AuthProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password)
   }
 
+  function logout() {
+    return auth.signOut()
+  }
+
+  function setPersistanceSession(email, password) {
+    auth().setPersistanceSession(auth.AUTH.Persistance.SESSION)
+    .then(() => {
+      return auth().signInWithEmailAndPassword(email, password);
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message 
+    })
+  }
+
   const value = {
     currentUser,
     signup,
-    login
+    login,
+    logout,
+    setPersistanceSession
   }
 
   return (

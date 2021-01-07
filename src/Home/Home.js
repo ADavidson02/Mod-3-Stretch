@@ -5,6 +5,10 @@ class Home extends Component {
     super()
   }
 
+  // getRandomIndex() {
+  //   return Math.floor(Math.random() * 217);
+  // }
+
   render(){
     return(
       <section className='home'>
