@@ -21,9 +21,14 @@ export function AuthProvider({ children }) {
     return unsubscribe
   }, [])
 
+  function login(email, password) {
+    return auth.signInWithEmailAndPassword(email, password)
+  }
+
   const value = {
     currentUser,
-    signup
+    signup,
+    login
   }
 
   return (
