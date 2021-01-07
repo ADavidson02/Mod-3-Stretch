@@ -8,21 +8,42 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp"
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext"
+import { getNewRandom } from "../apiCalls/apiCalls";
+
+
 
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+
+      advice: { id: null, advice: "" },
+    };
+  }
+
+  componentDidMount = async () => {
+    const newRandomAdvice = await getNewRandom();
+    const newRandom = newRandomAdvice.slip;
+    this.setState({ advice: newRandom });
+    console.log(this.state.advice)
+  };
+
+  getNewRandom = async () => {
+    const newRandomAdvice = await getNewRandom();
+    const newRandom = newRandomAdvice.slip;
+    this.setState({ advice: newRandom });
   }
 
   render() {
+
     return (
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh", flexDirection: "column" }}
       >
-        <nav style={{ flexDirection: "row" }}> 
+        <nav style={{ flexDirection: "row" }}>
           <h1>Advice</h1>
-          <button> </button>
+          <button> Log out </button>
         </nav>
         <div>
           <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -33,18 +54,24 @@ class App extends Component {
                   <Route path="/add-new-advice" component={Form} />
                   <Route path="/signup" component={SignUp} />
                   <Route path="/login" component={Login} />
-                  <Route exact path="/" component={Home} />
+                  <Route
+                    exact
+                    path="/"
+                    render={ (props) =>
+                      <Home advice={this.state.advice} getNewRandom={getNewRandom} />
+                    }
+                    />
                 </Switch>
               </AuthProvider>
             </Router>
           </div>
         </div>
       </Container>
-    )
+    );
 
     // return (
     //   <main className="App">
-    //     <nav> 
+    //     <nav>
     //       <h1>Advice</h1>
     //       <button> </button>
     //     </nav>
@@ -70,8 +97,8 @@ class App extends Component {
     //                 className="d-flex align-items-center justify-content-center"
     //                 style={{ minHeight: "100vh" }}
     //               >
-    //                 <div 
-    //                   className="w-100" 
+    //                 <div
+    //                   className="w-100"
     //                   style={{ maxWidth: "400px" }}
     //                 >
     //                   <SignUp />

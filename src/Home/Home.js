@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
-  constructor() {
-    super()
-  }
+import Card from "../Card/Card"
 
+
+class Home extends Component {
+  constructor(props) {
+    super(props)
+    console.log(props)
+  }
+  
   render(){
+
     return(
       <section className='home'>
         <div>
           <article>
-            fetchedAdvice
+            <Card adviceObj={this.props}/>
+            <h2></h2>
           </article>
         </div>
         <div>
