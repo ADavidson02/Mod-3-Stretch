@@ -22,7 +22,7 @@ class Form extends Component {
   }
 
   submitAdvice = () => {
-    if(this.state.advice === "" || this.state.email === "" || this.state.userName === "") {
+    if(!this.state.advice || !this.state.email || !this.state.userName ) {
       return this.setState({error: true})
     } else {
       // createAdvice(this.state.advice, this.state.email, this.state.userName)
