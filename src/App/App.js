@@ -54,13 +54,7 @@ class App extends Component {
                   <Route path="/add-new-advice" component={Form} />
                   <Route path="/signup" component={SignUp} />
                   <Route path="/login" component={Login} />
-                  <Route
-                    exact
-                    path="/"
-                    render={ (props) =>
-                      <Home advice={this.state.advice} getNewRandom={getNewRandom} />
-                    }
-                    />
+                  <Route exact path="/" component={Home} />
                 </Switch>
               </AuthProvider>
             </Router>
