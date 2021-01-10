@@ -28,8 +28,8 @@ class Home extends Component {
       this.setState({ advice: newRandom });
     } else {
       const newRandomAdvice = await getNewRandom();
-      const newRandom = newRandomAdvice.slip;
-      return <h2>Oh no same crappy advice</h2>
+      const newClickRandom = newRandomAdvice.slip;
+      this.setState({ advice: newClickRandom });
     }
   }
 
@@ -38,7 +38,7 @@ class Home extends Component {
       <section className="home">
         <div>
           <article>
-            <Card adviceObj={this.state.advice} />
+            <Card slip={this.state.advice} />
             <h2></h2>
           </article>
         </div>
