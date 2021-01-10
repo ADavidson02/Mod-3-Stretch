@@ -23,12 +23,12 @@ class Home extends Component {
 
   getNewRandom = async () => {
     const newRandomAdvice = await getNewRandom();
-    const newRandom = newRandomAdvice.slip; 
+    let newRandom = newRandomAdvice.slip; 
     if( this.state.advice.id !== newRandom.id) {
       this.setState({ advice: newRandom });
     } else {
       const newRandomAdvice = await getNewRandom();
-      const newRandom = newRandomAdvice.slip;
+      newRandom = newRandomAdvice.slip;
       return <h2>Oh no same crappy advice</h2>
     }
   }
@@ -44,7 +44,9 @@ class Home extends Component {
         </div>
         <div>
           <button onClick={() => this.getNewRandom()}>Get New Advice</button>
-          <button>Add New Advice</button>
+          {/* fetch request - functioning */}
+          <button>Add New Advice</button> 
+          {/* this button has to submit the data to the users saved advice */}
         </div>
       </section>
     );

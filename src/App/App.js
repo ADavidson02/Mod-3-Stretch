@@ -8,7 +8,8 @@ import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp"
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext"
-import { getNewRandom } from "../apiCalls/apiCalls";
+import { getNewRandom} from "../apiCalls/apiCalls";
+
 
 
 
