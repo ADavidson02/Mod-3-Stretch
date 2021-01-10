@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import { createAdvice } from "../apiCalls/apiCalls";
-import { Link } from "react-router-dom";
 
 
 
@@ -22,15 +21,16 @@ class Form extends Component {
   }
 
   submitAdvice = () => {
-    if(!this.state.advice || !this.state.email || !this.state.userName ) {
+
+    if(this.state.advice === "" || this.state.email === "" || this.state.userName === "" ) {
       return this.setState({error: true})
     } else {
+      this.props.history.push("./archive")
       // createAdvice(this.state.advice, this.state.email, this.state.userName)
       return this.setState({advice: "", email: "", userName: "", error: false })
     }
   }
     
-
   render() {
     return (
       <section>
@@ -61,10 +61,8 @@ class Form extends Component {
           />
         </div>
         <div>
-          <Link to="/archive">
-            <button onClick={this.submitAdvice}>Save Advice</button>
-            {this.state.error === true && <h2>Please fill out all fields</h2>}
-          </Link>
+          <button onClick={this.submitAdvice}>Save Advice</button>
+          {this.state.error === true && <h2>Please fill out all fields</h2>}
         </div>
       </section>
     );
