@@ -1,3 +1,4 @@
+import axios from "axios"
 
 export const getNewRandom = async () => {
   const response = await fetch("https://api.adviceslip.com/advice");
@@ -8,4 +9,18 @@ export const getNewRandom = async () => {
     console.log(`Error ${response.status}`)
     return response.status;
   }
+}
+
+export const createAdvice = async (advice, email, name) => {
+  axios.post('https://us-central1-advizer-development.cloudfunctions.net/user', {
+    advice: advice,
+    email: email,
+    name: name
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
