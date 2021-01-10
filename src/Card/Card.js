@@ -1,17 +1,18 @@
-
 import React from "react";
 
 const Card = (props) => {
-  console.log(props)
+
 
   return (
     <section>
-      <article id={props.adviceObj.id} className="text-center mb-4">
-        <h3>{props.adviceObj.advice}</h3>
+      <article className="text-center mb-4">
+        <h3>{props.advice}</h3>
+        <p>{props.email}</p>
+        <p>{props.name}</p>
       </article>
       <button>Delete</button>
     </section>
   );
-}
+};
 
 export default Card;
