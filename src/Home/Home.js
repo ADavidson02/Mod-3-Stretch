@@ -38,7 +38,7 @@ class Home extends Component {
       <section className="home">
         <div>
           <article>
-            <Card adviceObj={this.state.advice} />
+            {/* <Card adviceObj={this.state.advice} /> */}
             <h2></h2>
           </article>
         </div>

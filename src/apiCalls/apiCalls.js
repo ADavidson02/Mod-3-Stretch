@@ -24,3 +24,9 @@ export const createAdvice = async (advice, email, name) => {
     console.log(error);
   });
 }
+
+export const getAdviceSlips = async () => {
+  return axios.get(
+    "https://us-central1-advizer-development.cloudfunctions.net/user"
+  );
+};
