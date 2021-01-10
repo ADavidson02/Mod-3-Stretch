@@ -11,6 +11,7 @@
     "express-validator": "^6.9.2",
     "firebase": "^8.2.1",
     "react": "^17.0.1",
+    "react-axios": "^2.0.4",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
