@@ -9,8 +9,25 @@ jest.mock("../apiCalls/apiCalls");
 describe("Home", () => {
 
   it('should render two advice buttons', async () => {
-    
-    render(<Home />);
+
+     const getNewRandom1 = { id: 45, advice: "Do not kick children" };
+
+        render(
+          <section className="home">
+            <div>
+              <article>
+                <Card slip={getNewRandom1} />
+                <h2></h2>
+              </article>
+            </div>
+            <div>
+              <button onClick={() => this.getNewRandom()}>
+                Get New Advice
+              </button>
+              <button>Add New Advice</button>
+            </div>
+          </section>
+        );
     const newRandomButton = screen.getByText("Get New Advice");
     const addNewButton = screen.getByText("Add New Advice");
     expect(newRandomButton).toBeInTheDocument();
@@ -20,9 +37,9 @@ describe("Home", () => {
   
   it('should render an advice card', async () => {
     
-    const getNewRandom = ({ slip: 
+    const getNewRandom = (
     { id: 42, advice: "Do not eat yellow snow" }
-    });
+    );
 
     render(
       <section className="home">
@@ -42,7 +59,6 @@ describe("Home", () => {
     const adviceSlip = await waitFor(() =>
       screen.getByText("Do not eat yellow snow")
     );
-    screen.debug()
-
+    expect(screen.getByText("Do not eat yellow snow")).toBeInTheDocument()
   })
 })
