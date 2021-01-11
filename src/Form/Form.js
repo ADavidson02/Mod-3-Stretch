@@ -11,6 +11,7 @@ class Form extends Component {
       advice: "",
       email: "",
       userName: "",
+      id: "",
       error: false
     }
 
@@ -26,8 +27,8 @@ class Form extends Component {
       return this.setState({error: true})
     } else {
       this.props.history.push("./archive")
-      // createAdvice(this.state.advice, this.state.email, this.state.userName)
-      return this.setState({advice: "", email: "", userName: "", error: false })
+      createAdvice(this.state.advice, this.state.email, this.state.userName, Date.now())
+      return this.setState({advice: "", email: "", userName: "", id: "", error: false })
     }
   }
     

@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import Card from "../Card/Card";
-import { getAdviceSlips } from "../apiCalls/apiCalls"
+import { getAdviceSlips, deleteAdvice } from "../apiCalls/apiCalls"
 import { Link } from "react-router-dom"
 
 class Archive extends Component {
@@ -24,6 +24,19 @@ class Archive extends Component {
   }
 
 
+  deleteAdviceCard = (card) => {
+    const cardId = card.id;
+    // console.log(cardId)
+    // console.log(this.state.adviceSlips[0].id)
+
+    deleteAdvice(cardId)
+    const remainingCards = this.state.adviceSlips.filter(slip => slip.id !== cardId)
+    this.setState({ adviceSlips: remainingCards })
+    // console.log(this.state.adviceSlips)
+    
+  }
+
+
   render() {
     // const key = Date.now()
     return (
@@ -43,10 +56,12 @@ class Archive extends Component {
               if (slip.advice) {
                 return (
                   <Card
+                    id={slip.id}
                     key={slip.id}
                     advice={slip.advice}
                     email={slip.email}
                     name={slip.name}
+                    deleteAdviceCard={this.deleteAdviceCard}
                   />
                 );
               }
