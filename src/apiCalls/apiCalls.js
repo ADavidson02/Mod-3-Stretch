@@ -11,11 +11,12 @@ export const getNewRandom = async () => {
   }
 }
 
-export const createAdvice = async (advice, email, name) => {
+export const createAdvice = async (advice, email, name, id) => {
   axios.post('https://us-central1-advizer-development.cloudfunctions.net/user', {
     advice: advice,
     email: email,
-    name: name
+    name: name,
+    id: id
   })
   .then(function (response) {
     console.log(response);
@@ -29,4 +30,16 @@ export const getAdviceSlips = async () => {
   return axios.get(
     "https://us-central1-advizer-development.cloudfunctions.net/user"
   );
+}
+
+export const deleteAdvice = async (id) => {
+  axios.delete(`https://us-central1-advizer-development.cloudfunctions.net/user/${id}`, {
+    id: id
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 };
