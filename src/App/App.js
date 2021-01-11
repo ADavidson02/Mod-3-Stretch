@@ -16,22 +16,26 @@ import { getNewRandom} from "../apiCalls/apiCalls";
 class App extends Component {
   constructor() {
     super();
-    this.state = {
+    // this.state = {
 
-      advice: { id: null, advice: "" },
-    };
+    //   advice: { id: null, advice: "" },
+    // };
   }
 
-  componentDidMount = async () => {
-    const newRandomAdvice = await getNewRandom();
-    this.setState({ advice: newRandomAdvice });
-    console.log(this.state.advice)
-  };
 
-  getNewRandom = async () => {
-    const newRandomAdvice = await getNewRandom();
-    this.setState({ advice: newRandomAdvice });
-  }
+  // componentDidMount = async () => {
+  //   const newRandomAdvice = await getNewRandom();
+  //   const newRandom = newRandomAdvice.slip;
+  //   this.setState({ advice: newRandom });
+  //   console.log(this.state.advice)
+  // };
+
+  // getNewRandom = async () => {
+  //   const newRandomAdvice = await getNewRandom();
+  //   const newRandom = newRandomAdvice.slip;
+  //   this.setState({ advice: newRandom });
+  // }
+
 
   render() {
 
@@ -42,7 +46,6 @@ class App extends Component {
       >
         <nav style={{ flexDirection: "row" }}>
           <h1>Advice</h1>
-          <button> Log out </button>
         </nav>
         <div>
           <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -51,8 +54,9 @@ class App extends Component {
                 <Switch>
                   <Route path="/archive" component={Archive} />
                   <Route path="/add-new-advice" component={Form} />
-                  <Route path="/signup" component={SignUp} />
-                  <Route path="/login" component={Login} />
+
+                  {/* <Route path="/signup" component={SignUp} />
+                  <Route path="/login" component={Login} /> */}
                   <Route exact path="/" component={Home} />
                 </Switch>
               </AuthProvider>
