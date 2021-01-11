@@ -3,6 +3,8 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import Home from "./Home";
 import Card from "../Card/Card"
+import { MemoryRouter, Router } from "react-router-dom";
+import App from "../App/App";
 import { getNewRandom } from "../apiCalls/apiCalls";
 jest.mock("../apiCalls/apiCalls");
 
@@ -10,7 +12,10 @@ describe("Home", () => {
 
   it('should render two advice buttons', async () => {
 
-     const getNewRandom1 = { id: 45, advice: "Do not kick children" };
+    const getNewRandom1 = { 
+      id: 45,
+      advice: "Do not kick children"
+    };
 
         render(
           <section className="home">
@@ -61,4 +66,20 @@ describe("Home", () => {
     );
     expect(screen.getByText("Do not eat yellow snow")).toBeInTheDocument()
   })
+
+  // it.only("should route back to archive upon adding advice", async () => {
+  //   render(
+  //     <MemoryRouter>
+  //       <App />
+  //     </MemoryRouter>
+  //   )
+
+  //   const archiveLink = await waitFor(() => {
+  //     screen.getByText("Add New Advice")
+  //   })
+  //   userEvent.click(archiveLink)
+  //   expect(screen.queryByText("Get New Advice")).not.toBeInTheDocument();
+  //   screen.debug
+  // })
+
 })
