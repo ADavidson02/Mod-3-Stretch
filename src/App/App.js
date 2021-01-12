@@ -22,6 +22,7 @@ class App extends Component {
     // };
   }
 
+
   // componentDidMount = async () => {
   //   const newRandomAdvice = await getNewRandom();
   //   const newRandom = newRandomAdvice.slip;
@@ -34,6 +35,7 @@ class App extends Component {
   //   const newRandom = newRandomAdvice.slip;
   //   this.setState({ advice: newRandom });
   // }
+
 
   render() {
 
@@ -52,6 +54,7 @@ class App extends Component {
                 <Switch>
                   <Route path="/archive" component={Archive} />
                   <Route path="/add-new-advice" component={Form} />
+
                   {/* <Route path="/signup" component={SignUp} />
                   <Route path="/login" component={Login} /> */}
                   <Route exact path="/" component={Home} />

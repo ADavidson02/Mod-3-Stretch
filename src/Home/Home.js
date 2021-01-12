@@ -18,22 +18,26 @@ class Home extends Component {
 
   componentDidMount = async () => {
     const newRandomAdvice = await getNewRandom();
-    const newRandom = newRandomAdvice.slip;
+    const newRandom = newRandomAdvice;
     this.setState({ advice: newRandom });
+
     // console.log(this.state.advice)
+
   };
 
 
 
   getNewRandom = async () => {
     const newRandomAdvice = await getNewRandom();
-    let newRandom = newRandomAdvice.slip; 
+    let newRandom = newRandomAdvice; 
     if( this.state.advice.id !== newRandom.id) {
       this.setState({ advice: newRandom });
     } else {
       const newRandomAdvice = await getNewRandom();
-      newRandom = newRandomAdvice.slip;
-      return <h2>Oh no same crappy advice</h2>
+
+      const newClickRandom = newRandomAdvice.slip;
+      this.setState({ advice: newClickRandom });
+
     }
   }
 
@@ -47,6 +51,7 @@ class Home extends Component {
         <div>
           <article>
             <Card slip={ this.state.advice } />
+
             <h2></h2>
           </article>
         </div>
@@ -54,7 +59,7 @@ class Home extends Component {
           <button onClick={ () => this.getNewRandom() }>Get New Advice</button>
           {/* fetch request - functioning */}
           <Link to="/archive">
-            <button onClick={ this.addAdvice }>Add New Advice</button> 
+            <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>
           {/* this button has to submit the data to the users saved advice */}
         </div>
