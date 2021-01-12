@@ -45,7 +45,7 @@ class App extends Component {
         style={{ minHeight: "100vh", flexDirection: "column" }}
       >
         <nav style={{ flexDirection: "row" }}>
-          <h1>Advice</h1>
+          <h1 className="title">Advice</h1>
         </nav>
         <div>
           <div className="w-100" style={{ maxWidth: "400px" }}>

@@ -1,5 +1,5 @@
+import "./Home.css";
 import React, { Component } from 'react';
-
 import Card from "../Card/Card"
 import { getNewRandom, createAdvice } from "../apiCalls/apiCalls"
 import { Link } from 'react-router-dom'
@@ -55,9 +55,10 @@ class Home extends Component {
             <h2></h2>
           </article>
         </div>
-        <div>
+        <div className="button-container">
           <button onClick={ () => this.getNewRandom() }>Get New Advice</button>
           {/* fetch request - functioning */}
+          <div className="spacer"></div>
           <Link to="/archive">
             <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>

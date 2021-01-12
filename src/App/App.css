@@ -1,3 +1,11 @@
+* {
+  /* border: black solid 1px; */
+}
+
+h2 {
+  font-family: 'Cambay', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +44,10 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+font-family: 'Montserrat', sans-serif;
+font-size: 4em;
+margin-bottom: 10%;
+}
+
