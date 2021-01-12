@@ -1,14 +1,13 @@
 .advice-card {
-    display: flex;
-    flex-direction: column;
     border: black solid 2px;
     border-radius: 0.5em;
     padding: 1em;
     align-content: center;
     justify-content: center;
+    margin-bottom: 1em;
     width: 100%;
 }
 
-h2, p {
+h2 {
     font-family: 'Cambay', sans-serif;
 }

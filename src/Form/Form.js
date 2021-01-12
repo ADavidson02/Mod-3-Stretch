@@ -36,7 +36,7 @@ class Form extends Component {
     return (
       <section>
         <div>
-          <p label="new-thought">New Thought</p>
+          <p className="new-thought">New Thought</p>
         </div>
         <form>
           <input

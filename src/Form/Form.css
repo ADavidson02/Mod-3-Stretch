@@ -30,7 +30,7 @@ input {
     width: 100%
 }
 
-p {
+.new-thought {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     text-align: center;
