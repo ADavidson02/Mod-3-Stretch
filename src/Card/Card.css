@@ -1,0 +1,19 @@
+.advice-card {
+    display: flex;
+    flex-direction: column;
+    border: black solid 2px;
+    margin: 1em;
+    border-radius: 0.5em;
+    padding: 1em;
+    align-content: center;
+    justify-content: center;
+}
+.delete-button {
+   
+
+    
+}
+
+h2, p {
+    font-family: 'Cambay', sans-serif;
+}
