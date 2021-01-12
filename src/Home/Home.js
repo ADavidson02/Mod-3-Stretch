@@ -29,16 +29,16 @@ class Home extends Component {
 
   getNewRandom = async () => {
     const newRandomAdvice = await getNewRandom();
-    let newRandom = newRandomAdvice; 
-    if( this.state.advice.id !== newRandom.id) {
-      this.setState({ advice: newRandom });
-    } else {
-      const newRandomAdvice = await getNewRandom();
+    // let newRandom = newRandomAdvice; 
+    this.setState({ advice: newRandomAdvice });
+    // if( this.state.advice.id !== newRandom.id) {
+    // } else {
+    //   const newRandomAdvice = await getNewRandom();
 
-      const newClickRandom = newRandomAdvice.slip;
-      this.setState({ advice: newClickRandom });
+    //   const newClickRandom = newRandomAdvice.slip;
+    //   this.setState({ advice: newClickRandom });
 
-    }
+    // }
   }
 
   addAdvice = () => {
@@ -52,7 +52,7 @@ class Home extends Component {
           <article>
             <Card slip={ this.state.advice } />
 
-            <h2></h2>
+           
           </article>
         </div>
         <div className="button-container">
