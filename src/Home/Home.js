@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 
+import React, { Component } from 'react';
 import Card from "../Card/Card"
-import { getNewRandom, createAdvice } from "../apiCalls/apiCalls"
+import { getRandomAdvice, createAdvice } from "../apiCalls/apiCalls";
 import { Link } from 'react-router-dom'
 
 
@@ -17,28 +17,13 @@ class Home extends Component {
   }
 
   componentDidMount = async () => {
-    const newRandomAdvice = await getNewRandom();
-    const newRandom = newRandomAdvice;
-    this.setState({ advice: newRandom });
-
-    // console.log(this.state.advice)
-
+    const newRandomAdvice = await getRandomAdvice();
+    this.setState({ advice: newRandomAdvice });
   };
 
-
-
   getNewRandom = async () => {
-    const newRandomAdvice = await getNewRandom();
-    let newRandom = newRandomAdvice; 
-    if( this.state.advice.id !== newRandom.id) {
-      this.setState({ advice: newRandom });
-    } else {
-      const newRandomAdvice = await getNewRandom();
-
-      const newClickRandom = newRandomAdvice.slip;
-      this.setState({ advice: newClickRandom });
-
-    }
+    const newRandomAdvice = await getRandomAdvice();
+    this.setState({advice: newRandomAdvice})
   }
 
   addAdvice = () => {
@@ -51,17 +36,13 @@ class Home extends Component {
         <div>
           <article>
             <Card slip={ this.state.advice } />
-
-            <h2></h2>
           </article>
         </div>
         <div>
-          <button onClick={ () => this.getNewRandom() }>Get New Advice</button>
-          {/* fetch request - functioning */}
+          <button onClick={ this.getNewRandom }>Get New Advice</button>
           <Link to="/archive">
             <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>
-          {/* this button has to submit the data to the users saved advice */}
         </div>
       </section>
     );
