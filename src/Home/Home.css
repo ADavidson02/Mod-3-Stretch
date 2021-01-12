@@ -1,0 +1,12 @@
+
+.button-container {
+    font-family: 'Istok Web', sans-serif;
+    margin-top: 10%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.spacer {
+    width: 2em;
+}

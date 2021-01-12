@@ -1,3 +1,7 @@
+a {
+    padding: 0px;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +40,28 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+font-family: 'Montserrat', sans-serif;
+font-size: 4em;
+margin-bottom: 10%;
+}
+
+
+button {
+  font-family: 'Istok Web', sans-serif;
+  font-weight: 700;
+  border: transparent;
+  background-color: #175ae3;
+  color: #ffffff;
+  padding: .75rem 1.25rem;
+  text-align: center;
+  letter-spacing: .15rem;
+  overflow: hidden;
+}
+
+button:hover, button:focus{
+    background-color: #D53B9D;
+    border-radius: 10px;
+}
+

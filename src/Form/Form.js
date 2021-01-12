@@ -1,4 +1,4 @@
-
+import "./Form.css";
 import React, { Component } from 'react';
 import { createAdvice } from "../apiCalls/apiCalls";
 
@@ -36,9 +36,9 @@ class Form extends Component {
     return (
       <section>
         <div>
-          <p label="new-thought">New Thought</p>
+          <p className="new-thought">New Thought</p>
         </div>
-        <div>
+        <form>
           <input
             type="text"
             name="advice"
@@ -60,10 +60,10 @@ class Form extends Component {
             value={this.state.email}
             onChange={(e) => this.handleChange(e)}
           />
-        </div>
-        <div>
+        </form>
+        <div className="form-button-container">
           <button onClick={this.submitAdvice}>Save Advice</button>
-          {this.state.error === true && <h2>Please fill out all fields</h2>}
+          {this.state.error === true && <h2 className="error">Please fill out all fields</h2>}
         </div>
       </section>
     );
