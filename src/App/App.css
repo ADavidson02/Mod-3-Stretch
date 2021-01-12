@@ -1,10 +1,6 @@
-* {
-   border: black solid 1px; 
+a {
+    padding: 0px;
 }
-
-/* h2 {
-  font-family: 'Cambay', sans-serif;
-} */
 
 .App {
   text-align: center;
@@ -51,9 +47,6 @@ font-size: 4em;
 margin-bottom: 10%;
 }
 
-a {
-    padding: 0px;
-}
 
 button {
   font-family: 'Istok Web', sans-serif;
