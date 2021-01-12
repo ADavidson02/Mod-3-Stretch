@@ -59,7 +59,7 @@ class Home extends Component {
           <button onClick={ () => this.getNewRandom() }>Get New Advice</button>
           {/* fetch request - functioning */}
           <Link to="/archive">
-            <button onClick={ this.addAdvice }>Add New Advice</button> 
+            <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>
           {/* this button has to submit the data to the users saved advice */}
         </div>
