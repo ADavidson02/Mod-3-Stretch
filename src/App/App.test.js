@@ -3,13 +3,14 @@ import userEvent from "@testing-library/user-event"
 import "@testing-library/jest-dom"
 import App from "../App/App"
 import { Router } from "react-router-dom"
-import { getNewRandom, getAdviceSlips } from "../apiCalls/apiCalls";
-import { createMemoryHistory } from "history";
+import { getRandomAdvice, getAdviceSlips } from "../apiCalls/apiCalls";
+import { createMemoryHistory } from "history"
 jest.mock("../apiCalls/apiCalls")
+
 
 describe("App", () => {
   it("should send user to archive from home page", async () => {
-    getNewRandom.mockResolvedValue([
+    getRandomAdvice.mockResolvedValue([
       { id: 42, advice: "Do not eat yellow snow" },
     ]);
     getAdviceSlips.mockResolvedValue([
@@ -73,9 +74,9 @@ describe("App", () => {
   }),
 
   it("should return home from the archive", async () => {
-    getNewRandom.mockResolvedValue({slip:[
-      { id: 42, advice: "Do not eat yellow snow" }
-    ]});
+    getRandomAdvice.mockResolvedValue({
+      slip: [{ id: 42, advice: "Do not eat yellow snow" }],
+    });
     getAdviceSlips.mockResolvedValue([
       {
         id: 44,
@@ -100,5 +101,31 @@ describe("App", () => {
     await waitFor(() =>
       expect(screen.queryByText("Save Advice")).toBeInTheDocument()
     );
-  });
+  }),
+
+  it("should have a modal in the nav bar", () => {
+    const history = createMemoryHistory();
+    render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+
+    expect(screen.getByText("User Info")).toBeInTheDocument()
+  }),
+
+  it("should show user info in the modal", () => {
+    getRandomAdvice.mockResolvedValue({
+      slip: [{ id: 42, advice: "Do not eat yellow snow" }],
+    });
+    const history = createMemoryHistory();
+    render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    const modalButton = screen.getByText("User Info")
+    userEvent.click(modalButton)
+    expect(screen.getByText("Welcome Mike")).toBeInTheDocument();
+  })
 })
