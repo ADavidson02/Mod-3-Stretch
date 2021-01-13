@@ -26,19 +26,13 @@ class Archive extends Component {
 
   deleteAdviceCard = (card) => {
     const cardId = card.id;
-    // console.log(cardId)
-    // console.log(this.state.adviceSlips[0].id)
-
     deleteAdvice(cardId)
     const remainingCards = this.state.adviceSlips.filter(slip => slip.id !== cardId)
     this.setState({ adviceSlips: remainingCards })
-    // console.log(this.state.adviceSlips)
-    
   }
 
 
   render() {
-    // const key = Date.now()
     return (
       <section>
         <header>My Saved Advice</header>

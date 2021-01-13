@@ -1,120 +1,75 @@
-import "./App.css";
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../Home/Home";
-import Form from "../Form/Form";
-import Archive from "../Archive/Archive";
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp"
-import { Container } from "react-bootstrap";
-import { AuthProvider } from "../contexts/AuthContext"
-import { getNewRandom} from "../apiCalls/apiCalls";
+import "./App.css"
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Home from "../Home/Home"
+import Form from "../Form/Form"
+import Archive from "../Archive/Archive"
+import { Container } from "react-bootstrap"
+// import { AuthProvider } from "../contexts/AuthContext"
+import Modal from "react-modal"
+Modal.setAppElement("body")
 
 
 
-
-class App extends Component {
-  constructor() {
-    super();
-    // this.state = {
-
-    //   advice: { id: null, advice: "" },
-    // };
+function App() {
+  var subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+  function openModal() {
+    console.log('OPEB!')
+    setIsOpen(true)
+  }
+  const customStyles = {
+    content: {
+      top: "19%",
+      left: "71%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      background: "#b3c6ff",
+      opacity: "85%"
+    },
+  };
+  function afterOpenModal() {
+    subtitle.style.color = "#foo"
+  }
+  function closeModal() {
+    setIsOpen(false)
   }
 
-
-  // componentDidMount = async () => {
-  //   const newRandomAdvice = await getNewRandom();
-  //   const newRandom = newRandomAdvice.slip;
-  //   this.setState({ advice: newRandom });
-  //   console.log(this.state.advice)
-  // };
-
-  // getNewRandom = async () => {
-  //   const newRandomAdvice = await getNewRandom();
-  //   const newRandom = newRandomAdvice.slip;
-  //   this.setState({ advice: newRandom });
-  // }
-
-
-  render() {
-
-    return (
-      <Container
-        className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh", flexDirection: "column" }}
-      >
-        <nav style={{ flexDirection: "row" }}>
-          <h1 className="title">Advice</h1>
-        </nav>
-        <div>
-          <div className="w-100" style={{ maxWidth: "400px" }}>
-            <Router>
-              <AuthProvider>
-                <Switch>
-                  <Route path="/archive" component={Archive} />
-                  <Route path="/add-new-advice" component={Form} />
-
-                  {/* <Route path="/signup" component={SignUp} />
-                  <Route path="/login" component={Login} /> */}
-                  <Route exact path="/" component={Home} />
-                </Switch>
-              </AuthProvider>
-            </Router>
-          </div>
+  return (
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh", flexDirection: "column" }}
+    >
+      <nav style={{ flexDirection: "row" }}>
+        <h1 className="title">Advice</h1>
+        <button onClick={openModal}>User Info</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}> Welcome Mike</h2>
+          <p>Username: </p>
+          <button onClick={closeModal}>X</button>
+        </Modal>
+      </nav>
+      <div>
+        <div className="w-100" style={{ maxWidth: "400px" }}>
+          <Router>
+              <Switch>
+                <Route path="/archive" component={Archive} />
+                <Route path="/add-new-advice" component={Form} />
+                <Route exact path="/" component={Home} />
+              </Switch>
+          </Router>
         </div>
-      </Container>
-    );
-
-    // return (
-    //   <main className="App">
-    //     <nav>
-    //       <h1>Advice</h1>
-    //       <button> </button>
-    //     </nav>
-    //     <Switch>
-    //       <Route
-    //         path="/archive"
-    //         render={() => {
-    //           return <Archive />;
-    //         }}
-    //       />
-    //       <Route
-    //         path="/add-new-advice"
-    //         render={() => {
-    //           return <Form />;
-    //         }}
-    //       />
-    //       <Route
-    //         path="/signup"
-    //         render={() => {
-    //           return (
-    //             <AuthProvider>
-    //               <Container
-    //                 className="d-flex align-items-center justify-content-center"
-    //                 style={{ minHeight: "100vh" }}
-    //               >
-    //                 <div
-    //                   className="w-100"
-    //                   style={{ maxWidth: "400px" }}
-    //                 >
-    //                   <SignUp />
-    //                 </div>
-    //               </Container>
-    //             </AuthProvider>
-    //           )
-    //         }}
-    //       />
-    //       <Route
-    //         path="/"
-    //         render={() => {
-    //           return <Home />;
-    //         }}
-    //       />
-    //     </Switch>
-    //   </main>
-    // );
-  }
+      </div>
+    </Container>
+  );
 }
 
 export default App;
