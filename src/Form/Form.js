@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import { createAdvice } from "../apiCalls/apiCalls";
 
-
-
 class Form extends Component {
   constructor() {
     super()
@@ -14,21 +12,23 @@ class Form extends Component {
       id: "",
       error: false
     }
-
   }
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  submitAdvice = () => {
+  clearInputs = () => {
+    return this.setState({advice: "", email: "", userName: "", id: "", error: false })
 
+  }
+  submitAdvice = () => {
     if(this.state.advice === "" || this.state.email === "" || this.state.userName === "" ) {
       return this.setState({error: true})
     } else {
       this.props.history.push("./archive")
       createAdvice(this.state.advice, this.state.email, this.state.userName, Date.now())
-      return this.setState({advice: "", email: "", userName: "", id: "", error: false })
+      this.clearInputs()
     }
   }
     
