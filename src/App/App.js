@@ -5,7 +5,6 @@ import Home from "../Home/Home"
 import Form from "../Form/Form"
 import Archive from "../Archive/Archive"
 import { Container } from "react-bootstrap"
-// import { AuthProvider } from "../contexts/AuthContext"
 import Modal from "react-modal"
 Modal.setAppElement("body")
 
@@ -15,7 +14,6 @@ function App() {
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false)
   function openModal() {
-    console.log('OPEB!')
     setIsOpen(true)
   }
   const customStyles = {
@@ -42,9 +40,10 @@ function App() {
       className="d-flex align-items-center justify-content-center"
       style={{ minHeight: "100vh", flexDirection: "column" }}
     >
-      <nav style={{ flexDirection: "row" }}>
+      <nav style={{ flexDirection: "row", display: "flex" }}>
         <h1 className="title">Advice</h1>
-        <button onClick={openModal}>User Info</button>
+        <div className="spacer"></div>
+        <button className="user-info-button" onClick={openModal}>User Info</button>
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
@@ -52,7 +51,7 @@ function App() {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}> Welcome Mike</h2>
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Welcome Mike</h2>
           <p>Username: </p>
           <button onClick={closeModal}>X</button>
         </Modal>
