@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Mod 3 Stretch Technology - Advice Board / Firebase Back End (Group Project)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The link to our repo can be found there
+https://github.com/ADavidson02/Mod-3-Stretch
 
-## Available Scripts
+### The link to the project description can be found here
+https://frontend.turing.io/projects/module-3/stretch.html
 
-In the project directory, you can run:
+## Project Overview
+We were tasked with building a timer that can log the type, goal, and length of the activity. Each activity type is associated with a specific color which is applied in several places throughout the site. The timer feature shows the countdown before displaying a congratulatory message and the option to log your activity, which is the only way to return back to the main page where you can create a new activity, aside from refreshing the page. The log activity feature allows the user to store the completed activities and display them under the Past Activities section, with the color flag of the type of activity that was chosen. Local Storage was used to preserve the information when the page is refreshed.
 
-### `yarn start`
+For this project, our group decided to work with firebase along with React and Router to build an application with a simple backend that we could post to and fetch data from. We wanted to make an application that could crowdsource advice to anyone who was willing to share or in need of advice. We also added an extra fetch to a public api for randomly generated advice. In the future we would like to make it user authenticated so that the advice is saved persoanlly to each user that wants to keep track of the advice they have collected.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Goals
+For this project we wanted to learn and experiment working with a backend that we created and could manipulate and were successful in doing so.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies
+Javascript
+React
+Router
+Node
+Jest
+CSS
+Bootstrap
+Firebase/Firestore
 
-### `yarn test`
+## Challenges
+User Authentication and testing with router
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wins
+We can post to our database in cloud firestore and recieve all the data back.
 
-### `yarn build`
+## ScreenShots
+Fetched data from public api:
+![view of fetching data](/README-assets/Fetch-advice.gif)<br />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Posts user advice to cloud firestore:
+![posts data to firebase](/README-assets/POST-firestore.gif)<br />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
+Aaron Townsend: https://github.com/atownse
+Amanda Davidson: https://github.com/ADavidson02
+Estelle Staffieri: https://github.com/Estaffieri
