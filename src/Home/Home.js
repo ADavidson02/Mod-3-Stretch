@@ -4,7 +4,6 @@ import Card from "../Card/Card"
 import { getRandomAdvice, createAdvice } from "../apiCalls/apiCalls";
 import { Link } from 'react-router-dom'
 
-
 class Home extends Component {
   constructor() {
     super();
