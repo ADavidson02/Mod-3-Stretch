@@ -1,12 +1,9 @@
 
-import { screen, render, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import "@testing-library/jest-dom";
-import Form from "../Form/Form";
-import { createAdvice } from "../apiCalls/apiCalls"
-jest.mock("../apiCalls/apiCalls");
-import { createMemoryHistory } from "history";
-
+import { screen, render } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+import "@testing-library/jest-dom"
+import Form from "../Form/Form"
+jest.mock("../apiCalls/apiCalls")
 
 describe("Form", () => {
   it("should render the form correctly", () => {

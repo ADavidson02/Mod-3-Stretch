@@ -1,11 +1,12 @@
 
-import { screen, render, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
+import { screen, render, waitFor } from "@testing-library/react"
+import "@testing-library/jest-dom"
 import Card from "../Card/Card"
-jest.mock("../apiCalls/apiCalls");
+import { getRandomAdvice } from "../apiCalls/apiCalls"
+jest.mock("../apiCalls/apiCalls")
 
 describe("Home", () => {
-  it('should render two advice buttons', async () => {
+  it("should render two advice buttons", async () => {
     const getNewRandom1 = { 
       id: 45,
       advice: "Do not kick children"
@@ -19,9 +20,7 @@ describe("Home", () => {
           </article>
         </div>
         <div>
-          <button onClick={() => this.getNewRandom()}>
-            Get New Advice
-          </button>
+          <button onClick={() => getRandomAdvice}>Get New Advice</button>
           <button>Save Advice</button>
         </div>
       </section>
@@ -32,20 +31,21 @@ describe("Home", () => {
     expect(addNewButton).toBeInTheDocument();
   }),
   
-  it('should render an advice card', async () => {
-    const getNewRandom = (
+  it("should render an advice card", async () => {
+    
+    const adviceSlip1 = (
     { id: 42, advice: "Do not eat yellow snow" }
     );
     render(
       <section className="home">
         <div>
           <article>
-            <Card slip={getNewRandom} />
+            <Card slip={adviceSlip1} />
             <h2></h2>
           </article>
         </div>
         <div>
-          <button onClick={() => this.getNewRandom()}>Get New Advice</button>
+          <button onClick={() => getNewRandom}>Get New Advice</button>
           <button>Save Advice</button>
         </div>
       </section>
