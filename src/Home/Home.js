@@ -1,4 +1,5 @@
 
+import "./Home.css";
 import React, { Component } from 'react';
 import Card from "../Card/Card"
 import { getRandomAdvice, createAdvice } from "../apiCalls/apiCalls";
@@ -37,8 +38,9 @@ class Home extends Component {
             <Card slip={ this.state.advice } />
           </article>
         </div>
-        <div>
+        <div className="button-container">
           <button onClick={ this.getNewRandom }>Get New Advice</button>
+          <div className="spacer"></div>
           <Link to="/archive">
             <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>

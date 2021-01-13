@@ -1,4 +1,4 @@
-
+import "./Archive.css";
 import React, { Component } from "react";
 import Card from "../Card/Card";
 import { getAdviceSlips, deleteAdvice } from "../apiCalls/apiCalls"
@@ -35,11 +35,13 @@ class Archive extends Component {
   render() {
     return (
       <section>
-        <div>
-          <header>My Saved Advice</header>
+        <header>My Saved Advice</header>
+        <div className="archive-button-container">
+          {/* <header>My Saved Advice</header> */}
           <Link to="/add-new-advice">
             <button>Add New Advice</button>
           </Link>
+          <div className="spacer"></div>
           <Link to="/">
             <button>Get Random Advice</button>
           </Link>

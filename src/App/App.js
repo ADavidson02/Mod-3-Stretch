@@ -43,7 +43,7 @@ function App() {
       style={{ minHeight: "100vh", flexDirection: "column" }}
     >
       <nav style={{ flexDirection: "row" }}>
-        <h1>Advice</h1>
+        <h1 className="title">Advice</h1>
         <button onClick={openModal}>User Info</button>
         <Modal
           isOpen={modalIsOpen}
