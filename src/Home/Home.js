@@ -44,6 +44,10 @@ class Home extends Component {
           <Link to="/archive">
             <button onClick={ this.addAdvice }>Save Advice</button> 
           </Link>
+          <div className="spacer"></div>
+          <Link to="/archive">
+            <button>Advice Board</button>
+          </Link>
         </div>
       </section>
     );
