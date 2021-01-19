@@ -7,7 +7,6 @@ https://github.com/ADavidson02/Mod-3-Stretch
 https://frontend.turing.io/projects/module-3/stretch.html
 
 ## Project Overview
-We were tasked with building a timer that can log the type, goal, and length of the activity. Each activity type is associated with a specific color which is applied in several places throughout the site. The timer feature shows the countdown before displaying a congratulatory message and the option to log your activity, which is the only way to return back to the main page where you can create a new activity, aside from refreshing the page. The log activity feature allows the user to store the completed activities and display them under the Past Activities section, with the color flag of the type of activity that was chosen. Local Storage was used to preserve the information when the page is refreshed.
 
 For this project, our group decided to work with firebase along with React and Router to build an application with a simple backend that we could post to and fetch data from. We wanted to make an application that could crowdsource advice to anyone who was willing to share or in need of advice. We also added an extra fetch to a public api for randomly generated advice. In the future we would like to make it user authenticated so that the advice is saved persoanlly to each user that wants to keep track of the advice they have collected.
 
